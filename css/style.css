@@ -1,0 +1,1351 @@
+a {
+ color: black;
+ text-decoration: none;
+}
+ul{
+ list-style-type: none;
+ padding: 0;
+}
+
+body{
+ font-family: ubuntu,sans-serif;
+ line-height: 30px;
+}
+
+/* Block footer */
+.block-footer .infos-content{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #0D43BB;
+  padding-top: 65px;
+}
+
+
+.block-footer .infos-content .flex{
+  text-align: center;
+}
+
+.block-footer .infos-content .flex .h3-title{
+  color: #2A2A2A;
+}
+
+.block-footer .infos-content .flex ul li a{
+  color: #0D43BB;
+}
+
+.block-footer .infos-content .reseaux{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-top: 15px;
+  padding-bottom: 15px;
+
+}
+
+.block-footer .infos-content .reseaux .rs{
+  width: 15px;
+  height: 15px;
+  padding: 10px;
+  border: 1px solid #0D43BB;
+  margin: 0 10px;
+}
+
+.block-footer .infos-content .reseaux .insta{
+  background-color: #0D43BB;
+}
+
+.block-footer .design{
+  color: white;
+  background-color: #0D43BB;
+  margin: 0;
+  padding: 2px 0;
+  text-align: center;
+  font-size: 12px;
+}
+
+.h2-title{
+  text-align: center;
+  padding: 50px 0;
+}
+
+.h2-title:after{
+  content: '';
+  display: block;
+  width: 30px;
+  border-bottom: 3px solid #0D43BB;
+  margin: 10px auto 0;
+}
+
+.block-footer .resume{
+  width: 90vw;
+  margin: auto;
+}
+
+.block-footer .block-reservation{
+    background-color: #0D43BB;
+    color: white;
+    padding-bottom: 60px;
+}
+
+.block-footer .block-reservation .resume{
+  text-align: center;
+  padding: 60px 0 30px;
+}
+.block-footer .block-reservation .liens{
+  border: 1px solid white;
+  padding: 15px 30px;
+  width: 30vw;
+  text-align: center;
+  display: block;
+  margin:0 auto;
+  color: white;
+}
+
+
+/* HEADER */
+.block-header{
+  background-color: white;
+  box-shadow: 0px 2px 26px #0000000F;
+}
+
+.block-header .logo{
+  background-color: #0D43BB;
+  padding: 15px 10px 10px;
+}
+
+.block-header .logo img{
+  width: 60px;
+
+}
+
+.block-header .block-nav{
+  display: none;
+}
+
+.block-header .block-nav-mobile{
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+
+.block-header .block-nav-mobile .menu-mobile{
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  color: #2A2A2A;
+  width: 100%;
+  position: absolute;
+  overflow: hidden;
+  right: -100%;
+  transition: right 1s;
+
+  top: 75px;
+}
+
+.block-header .block-nav-mobile .menu-mobile .liens{
+  background-color: #0D43BB;
+  color: #fff;
+  width: 100%;
+  display: block;
+  width: 17vw;
+  margin: 25px auto;
+  text-align: center;
+}
+
+.block-header .block-nav-mobile .open{
+  right: 0;
+  transition: right 1s;
+}
+
+.block-header .block-nav-mobile .menu-mobile ul li{
+  border: 1px solid #F8F8F8;
+  padding: 30px 0;
+  text-align: center;
+}
+
+.block-header .block-nav-mobile .reseaux{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    align-self: baseline;
+  }
+
+  .block-header .block-nav-mobile .reseaux .rs{
+    width: 15px;
+    height: 15px;
+    padding: 10px;
+    border: 1px solid #0D43BB;
+    margin: 0 10px;
+  }
+
+  .block-header .block-nav-mobile .reseaux .insta{
+    background-color: #0D43BB;
+  }
+
+
+  .hamburger-inner, .hamburger-inner::before, .hamburger-inner::after{
+    width: 30px !important;
+    background-color: #0D43BB !important;
+  }
+
+  .breadcrumb {
+      background-color: #F8F8F8;
+  }
+  .breadcrumb ul {
+      display: flex;
+      background-color: #F8F8F8;
+      margin: 0 auto;
+      padding: 10px 0;
+      width: 90vw;
+  }
+
+  .breadcrumb li {
+      color: #2A2A2A;
+  }
+  .breadcrumb li::before {
+      content: ">";
+      padding: 0 10px;
+  }
+
+  .breadcrumb li:first-child::before {
+      content: "";
+      padding: 0;
+  }
+
+/* INDEX */
+
+.block-main .banniere{
+  height: 250px;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.block-main .banniere .resume-title{
+  margin: 0;
+}
+
+.block-main .accueil{
+  height: 500px;
+  background-image: url("../img/banniere-accueil.png");
+}
+
+.block-main .banniere-games{
+  background-image: url("../img/banniere-games.png");
+}
+
+.block-main .banniere-contact{
+  background-image: url("../img/contact.png");
+}
+
+.block-main .banniere-mentions{
+  background-image: url("../img/banniere-mentions.png");
+}
+
+.block-main .banniere-entreprise{
+  background-image: url("../img/banniere-entreprise.png");
+}
+
+.block-main .banniere-reserver{
+  background-image: url("../img/banniere-reserver.png");
+}
+
+.block-main .banniere-offrir{
+  background-image: url("../img/banniere-offrir.png");
+}
+
+.liens{
+  color: white;
+  border: 1px solid white;
+  padding: 10px 35px;
+  margin-top: 50px;
+}
+
+.block-main .wrapper{
+    width: 90vw;
+    margin: 0 auto;
+    font-size: 15px;
+}
+
+.block-main .wrapper .see-all{
+    padding:15px 20px;
+    display: block;
+    width: 30vw;
+    text-align: center;
+    margin: 70px auto;
+    color: #0D43BB;
+    border: 1px solid #0D43BB;
+    background-color: white;
+}
+
+.block-main .wrapper .games{
+  display: flex;
+  flex-direction: column;
+  margin-bottom:90px;
+}
+
+.block-main .wrapper .games .buttons{
+  display: flex;
+  flex-direction: row;
+  padding-top: 10px
+}
+
+.block-main .wrapper .games img{
+  width: 90vw;
+}
+
+.block-main .wrapper .games .icone{
+  width: 20px;
+  height:20px;
+  vertical-align: middle;
+  padding-right: 5px;
+}
+
+
+.block-main .wrapper .games .game_infos .h3-title{
+  font-size: 1.7rem;
+}
+
+.block-main .wrapper .games .additional_infos ul{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.block-main .wrapper .games .additional_infos ul li{
+  color: #0D43BB;
+  font-size: 15px;
+  flex-basis: 50%;
+  padding-bottom: 15px;
+}
+.block-main .wrapper .games .text{
+  color:#2A2A2A;
+}
+.block-main .wrapper .games .buttons .liens{
+  border: 1px solid #0D43BB;
+  padding: 15px 20px;
+  margin-right: 10px;
+  background-color: white;
+  color: #0D43BB;
+}
+.block-main .wrapper .games .accueil_buttons .liens{
+  margin: 0 15px 0 0;
+  padding: 15px 60px;
+}
+
+.block-main .wrapper .games .buttons .blue-liens{
+  background-color:#0D43BB;
+  color: white;
+}
+
+
+/* GAMES */
+.block-main .nav-genre{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.block-main .wrapper .hidden{
+  display:none;
+}
+
+.block-main .nav-genre .current{
+background-color: #0D43BB;
+color: white;
+}
+
+.block-main .nav-genre .current a{
+color: white;
+}
+
+.block-main .nav-genre li{
+  padding: 10px 30px;
+  background-color: #F8F8F8;
+  margin:0 30px 20px 0;
+}
+
+.block-main .nav-genre li a{
+
+  color: #2A2A2A;
+}
+
+
+/* SINGLE-GAME */
+
+.block-main .infos_singleGame{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  margin: 50px 0;
+}
+
+.block-main .infos_singleGame li{
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  color: #0D43BB;
+}
+
+.block-main .infos_singleGame .icone{
+  width: 35px;
+  height: 35px;
+  padding-bottom: 10px;
+  padding-right: 15px;
+}
+
+.block-main .h2-single_game{
+  padding-top: 35px;
+}
+
+.block-main .description{
+  padding-bottom: 50px;
+}
+
+.block-main .description{
+  line-height: 25px;
+  padding-bottom: 50px;
+}
+
+.block-main .lien_single_game{
+  display: block;
+  width: 40vw;
+  margin: auto;
+  color: white;
+  background-color: #0D43BB;
+  padding: 10px;
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+/* CONTACT */
+
+.block-main .intro{
+  font-size: 12px;
+  color:#2A2A2A;
+}
+
+.block-main .wrapper-contact{
+  display: flex;
+  flex-direction: column;
+}
+
+.block-main .wrapper-contact .formulaire{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.block-main .wrapper-contact .form{
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 25px;
+  flex-basis: 100%;
+  color:#0D43BB;
+}
+.block-main .wrapper-contact .form-msg{
+  flex-basis: 100%;
+}
+.block-main .wrapper-contact .form-msg input{
+  height: 200px;
+}
+
+.block-main .wrapper-contact .form-msg,.block-main .wrapper-contact .form-name,.block-main .wrapper-contact .form-tel{
+  padding-right: 0;
+}
+.block-main .wrapper-contact .form span{
+  padding-bottom: 5px;
+}
+
+.block-main .wrapper .wrapper-contact button{
+  margin: 30px auto;
+  padding: 10px 50px;
+  background-color: white;
+  border: 1px solid #0D43BB;
+  color:#0D43BB;
+}
+
+.block-main .wrapper-contact .contact{
+  flex-basis: 26%;
+
+}
+
+.block-main .wrapper-contact .contact .addresse{
+  background-color: #F8F8F8;
+  padding: 50px 70px;
+  color: #2A2A2A;
+
+}
+
+.block-main .wrapper-contact .contact .rs{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 25px 0;
+}
+
+.block-main .wrapper-contact .contact .rs img{
+  width: 15px;
+  height: 15px;
+  padding: 10px;
+  border: 1px solid #0D43BB;
+  margin-right: 45px;
+}
+
+.block-main .wrapper-contact .contact .rs .insta{
+  background-color: #0D43BB;
+}
+
+
+/* MENTIONS LEGALES */
+.block-main .wrapper .mentions-legal{
+  padding-bottom: 30px;
+  color: #2A2A2A;
+}
+
+/* ENTREPRISES */
+
+.block-main .wrapper .h3-title{
+  font-size: 25px;
+}
+
+.block-main .wrapper .resume-entreprise{
+  color: #2A2A2A;
+}
+
+.block-main .wrapper .liste-entreprise{
+  color: #0D43BB;
+}
+
+.block-main .wrapper .liste-entreprise li{
+  padding: 5px 0;
+}
+
+.block-main .wrapper .liste-entreprise .icone{
+  width: 20px;
+  height: 20px;
+  padding-right: 10px;
+}
+
+.block-main .wrapper .entreprise{
+  display: inline-block;
+  color: #fff;
+  background-color: #0D43BB;
+  margin:40px 0;
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+.block-main .wrapper .games .additional_infos ul li{
+  flex-basis: inherit;
+}
+
+.block-main .infos_singleGame{
+  flex-direction: row;
+}
+
+.block-main .infos_singleGame li{
+  flex-basis: 50%;
+  padding-bottom: 20px;
+}
+
+.block-main .lien_single_game{
+  width: 30vw;
+}
+
+}
+
+@media (min-width: 1025px){
+  .block-header .block-nav-mobile{
+    display: none;
+  }
+  .block-header .block-nav{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+  }
+
+  .block-header .block-nav .menu{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-basis: 100%;
+  align-items: center;
+}
+
+.block-header .block-nav .menu li a{
+  padding: 16px 20px;
+  color: #2A2A2A;
+}
+.block-header .block-nav .menu li a:hover{
+  color:#0D43BB;
+  border-bottom: 1px solid #0D43BB;
+}
+
+.block-header .block-nav .menu {
+  margin: 0;
+}
+
+.block-header .block-nav .menu .reserver {
+  margin: 0 30px 0 auto;
+  color: #0D43BB;;
+  border: 1px solid #0D43BB;
+  padding: 10px 50px;
+}
+
+.block-footer .resume{
+  width: 65vw;
+}
+.block-footer .block-reservation .liens{
+  width: 12vw;
+}
+
+.block-footer .infos-content{
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: flex-start;
+}
+
+.block-main .wrapper .games{
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.block-main .wrapper .games .game_infos{
+  width: 45vw;
+}
+
+.block-main .wrapper .games img{
+  width: 40vw;
+}
+
+.block-main .wrapper .games .additional_infos ul{
+  justify-content: flex-start;
+}
+.block-main .wrapper .games .additional_infos ul li{
+  flex-basis: inherit;
+  padding-right: 30px;
+}
+
+.block-main .wrapper .see-all{
+  width: 15vw;
+}
+
+.block-main .wrapper div:nth-child(2n) img{
+  order:0;
+}
+
+.block-main .wrapper div:nth-child(2n+1) img{
+  order: 2;
+}
+
+.block-main .infos_singleGame{
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.block-main .infos_singleGame li{
+  flex-direction: column;
+  align-items: center;
+}
+
+.block-main .description{
+  column-count: 2;
+}
+
+.block-main .lien_single_game{
+  width: 15vw;
+}
+
+.block-main .wrapper-contact{
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.block-main .wrapper-contact .formulaire{
+  flex-basis: 65%;
+}
+
+.block-main .wrapper-contact .form{
+  flex-basis: 45%;
+    padding-right: 15px;
+}
+
+.block-main .wrapper-contact .form-msg{
+  flex-basis: 100%;
+}
+
+.block-main .wrapper .mentions-legal{
+  column-count: 2;
+}
+/* HEADER */
+ a {
+  color: black;
+  text-decoration: none;
+}
+ul{
+  list-style-type: none;
+  padding: 0;
+}
+
+body{
+  font-family: ubuntu,sans-serif;
+}
+
+.block-header{
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.block-header .logo{
+  background-color: #0D43BB;
+  padding: 15px 10px 10px;
+}
+
+.block-header .logo img{
+  width: 60px;
+
+}
+
+.block-header .liens{
+  border: 1px solid #0D43BB;
+  padding: 5px 20px;
+  margin-right: 15px;
+  color: #0D43BB;
+}
+
+.block-header .block-nav{
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  flex-basis: 60%;
+}
+.block-header .block-nav .menu{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-basis: 80%;
+  margin: 0;
+  margin-left: 10px;
+}
+
+.block-header .block-nav .menu li a{
+  padding: 16px 20px;
+}
+.block-header .block-nav .menu li a:hover{
+  color:#0D43BB;
+  border-bottom: 1px solid #0D43BB;
+}
+
+
+/* FOOTER */
+.block-footer{
+  line-height: 23px;
+}
+.block-footer .block-reservation{
+    background-color: #0D43BB;
+    color: white;
+    padding-bottom: 60px;
+}
+
+.block-footer .block-reservation .resume{
+  max-width: 70vw;
+  text-align: center;
+  margin:auto;
+  padding: 60px 0 30px;
+}
+
+.block-footer .block-reservation .liens{
+  border: 1px solid white;
+  padding: 15px 30px;
+  width: 12vw;
+  text-align: center;
+  display: block;
+  margin:0 auto;
+  color: white;
+}
+
+.block-footer .infos-content{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: baseline;
+}
+
+.block-footer .infos-content .adresse p{
+  color:#0D43BB;
+
+}
+
+.block-footer .infos-content .adresse .futuroid{
+  margin-top: 0;
+
+}
+
+.block-footer .infos-content .reseaux{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-basis: 13%;
+  align-self: baseline;
+}
+
+.block-footer .infos-content .reseaux .rs{
+  width: 15px;
+  height: 15px;
+  padding: 10px;
+  border: 1px solid #0D43BB;
+}
+
+.block-footer .infos-content .reseaux .insta{
+  background-color: #0D43BB;
+}
+
+
+.block-footer .infos-content ul li a{
+  color:#0D43BB;
+}
+
+.block-footer .infos-content .adresse img{
+  width: 50px;
+}
+
+.block-footer .h2-title{
+  text-align: center;
+  padding: 50px 0;
+}
+
+.block-footer .h2-title:after{
+  content: '';
+  display: block;
+  width: 30px;
+  border-bottom: 1px solid #0D43BB;
+  margin: 10px auto 0;
+}
+
+
+/* ACCUEIL */
+
+.block-main .banniere{
+  height: 250px;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.block-main .accueil h1{
+  margin-top: 5px;
+}
+
+.block-main .accueil{
+  height: 500px;
+  background-image: url("../img/banniere-accueil.png");
+}
+
+.block-main .banniere-games{
+  background-image: url("../img/banniere-games.png");
+}
+
+.block-main .banniere-contact{
+  background-image: url("../img/contact.png");
+}
+
+.block-main .banniere-mentions{
+  background-image: url("../img/banniere-mentions.png");
+}
+
+.block-main .banniere-entreprise{
+  background-image: url("../img/banniere-entreprise.png");
+}
+
+.block-main .banniere-reserver{
+  background-image: url("../img/banniere-reserver.png");
+}
+
+.block-main .intro{
+  color:#2A2A2A;
+}
+
+.block-main .wrapper-contact{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-bottom: 60px;
+}
+
+.block-main .wrapper-contact .formulaire{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  flex-basis:60%;
+  justify-content: space-between;
+}
+.block-main .wrapper-contact .form{
+  display: flex;
+  flex-direction: column;
+  padding-right: 15px;
+  padding-bottom: 25px;
+  flex-basis: 45%;
+  color:#0D43BB;
+}
+.block-main .wrapper-contact .form-msg{
+  flex-basis: 100%;
+}
+.block-main .wrapper-contact .form-msg input{
+  height: 200px;
+}
+
+.block-main .wrapper-contact .form-msg,.block-main .wrapper-contact .form-name,.block-main .wrapper-contact .form-tel{
+  padding-right: 0;
+}
+.block-main .wrapper-contact .form span{
+  padding-bottom: 5px;
+}
+
+.block-main .wrapper-contact button{
+  margin: auto;
+  padding: 10px 30px;
+  background-color: white;
+  border: 1px solid #0D43BB;
+  color:#0D43BB;
+}
+
+.block-main .wrapper-contact .contact{
+  flex-basis: 30%;
+
+}
+
+.block-main .wrapper-contact .contact .addresse{
+  background-color: #F8F8F8;
+  padding: 30px;
+
+}
+
+.block-main .wrapper-contact .contact .rs{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-self: baseline;
+}
+
+.block-main .wrapper-contact .contact .rs img{
+  width: 15px;
+  height: 15px;
+  padding: 10px;
+  border: 1px solid #0D43BB;
+  margin-right: 45px;
+}
+
+.block-main .wrapper-contact .contact .rs .insta{
+  background-color: #0D43BB;
+}
+
+.block-main .Bow{
+  background-image: url("../data-games/bowIsland/bowIsland-index.png");
+  height: 250px;
+}
+.block-main .accueil .liens{
+  color: white;
+  border: 1px solid white;
+  padding: 10px 15px;
+  margin-top: 100px;
+}
+
+.block-main .h2-title{
+  text-align: center;
+  padding: 50px 0 0;
+}
+
+.block-main .h2-title:after{
+  content: '';
+  display: block;
+  width: 30px;
+  border-bottom: 1px solid #0D43BB;
+  margin: 10px auto 0;
+}
+
+.block-main .wrapper{
+    width: 80vw;
+    margin: 50px auto;
+}
+
+.block-main .wrapper .see-all{
+    padding:15px 20px;
+    display: block;
+    width: 15vw;
+    text-align: center;
+    margin: 70px auto;
+    color: white;
+    background-color: #0D43BB;
+}
+
+.block-main .wrapper .games{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding-bottom:40px;
+  align-items: center;
+}
+
+.block-main .wrapper div:nth-child(2n) img{
+  order:0;
+}
+
+.block-main .wrapper div:nth-child(2n+1) img{
+  order: 2;
+}
+
+.block-main .wrapper .games img{
+  width: 30vw;
+}
+
+.block-main .wrapper .games .icone{
+  width: 17px;
+  height:17px;
+  vertical-align: baseline;
+  padding-right: 5px;
+}
+
+.block-main .wrapper .games .game_infos{
+  width: 40vw;
+}
+
+.block-main .wrapper .games .additional_infos ul{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.block-main .wrapper .games .additional_infos ul li{
+  color: #0D43BB;
+}
+
+.block-main .wrapper .games .text{
+  line-height: 30px;
+  color:#2A2A2A;
+}
+
+.block-main .wrapper .games .buttons{
+  margin-top: 40px;
+}
+
+.block-main .wrapper .games .buttons .liens{
+  border: 1px solid #0D43BB;
+  color: #0D43BB;
+  padding: 15px 20px;
+  margin-right: 10px;
+}
+
+.block-main .wrapper .games .buttons .blue-liens{
+  background-color:#0D43BB;
+  color: white;
+}
+
+.block-main .h3title{
+  padding-left: 50px;
+}
+.block-main .nav-genre{
+  display: flex;
+  flex-direction: row;
+  margin: auto;
+}
+
+.block-main .nav-genre li{
+  margin: 0 15px;
+}
+
+.block-main .nav-genre li a{
+  padding: 15px 10px;
+  color: #2A2A2A;
+}
+
+.block-main .infos_singleGame{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.block-main .infos_singleGame li{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.block-main .infos_singleGame .icone{
+  width: 35px;
+  height: 35px;
+  padding-bottom: 10px;
+}
+
+.block-main .h2-single_game{
+  padding-top: 35px;
+}
+
+.block-main .description{
+  line-height: 25px;
+  column-count: 2;
+  padding-bottom: 50px;
+}
+
+.block-main .description{
+  line-height: 25px;
+  column-count: 2;
+  padding-bottom: 50px;
+}
+
+.block-main .lien_single_game{
+  display: block;
+  width: 15vw;
+  margin: auto;
+  color: white;
+  background-color: #0D43BB;
+  padding: 10px;
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.block-main .wrapper .mentions-legal{
+  column-count: 2;
+  padding-bottom: 50px;
+}
+
+.block-main .wrapper .liste-entreprise{
+  color: #0D43BB;
+}
+
+.block-main .wrapper .liste-entreprise .icone{
+  width: 20px;
+  height: 20px;
+  padding-right: 10px;
+}
+
+.block-main .wrapper .liens{
+  display: block;
+  width: 12vw;
+  color: white;
+  background-color: #0D43BB;
+  padding: 15px;
+  margin: 25px auto;
+  text-align: center;
+}
+
+.block-main .wrapper .liste-etapes{
+  display: flex;
+  flex-direction: row;
+}
+.block-main .wrapper .liste-etapes li{
+  background-color: #F8F8F8;
+  padding: 10px 20px;
+  margin-right: 15px;
+}
+
+.block-main .wrapper .liste-etapes li.active,
+.block-main .wrapper .liste-etapes li.finish{
+  background-color: #0D43BB;
+  color: white;
+}
+
+.block-main .wrapper .first-step .h3-title{
+  color: #0D43BB;
+}
+
+.block-main .wrapper .indications{
+  color: #2A2A2A;
+  font-size: 9px;
+}
+
+.block-main .wrapper button{
+  background-color: #0D43BB;
+  color: white;
+  padding: 5px;
+  border-color: #0D43BB;
+  margin: 25px auto;
+  display: block;
+}
+
+.block-main .wrapper .first-step .liste-pack{
+  display: flex;
+  flex-direction: row;
+
+}
+
+.block-main .wrapper .first-step .form-step-2{
+  color: #0D43BB;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.block-main .wrapper .first-step .form-step-2 .item{
+  display: flex;
+  flex-direction: column;
+  flex-basis: 45%;
+  padding-bottom: 25px;
+}
+
+.block-main .wrapper .first-step .form-step-2 .calendar{
+  flex-basis: 100%;
+}
+
+.block-main .wrapper .first-step .form-step-2 .buttons{
+  display: flex;
+  margin: auto;
+}
+
+.block-main .wrapper .first-step .form-step-2 .buttons .lien-reserver{
+  width: 21vw;
+  margin-right: 15px;
+}
+
+
+
+
+
+/* -------------------------------------------------- */
+.block-main .first-step .liste-pack li label {
+    display: block;
+    color: #0D43BB;
+    border: 1px solid rgb(240, 240, 240);
+    padding: 50px 50px;
+    margin-right: 10px;
+}
+.block-main .first-step .liste-pack li label:hover {
+    border: 1px solid #0D43BB;
+}
+.block-main .first-step .liste-pack li label.selected {
+    background-color: #0D43BB;
+    color: white;
+    border: 1px solid #0D43BB;
+}
+.block-main .first-step .liste-pack li label.invalid {
+    border: 1px solid red;
+}
+.block-main .first-step .liste-pack input {
+    display: none;
+}
+.block-main .first-step label:hover {
+    cursor: pointer;
+}
+
+.block-main .wrapper .first-step .form-step-2 .calendar {
+    flex-direction: row;
+}
+.block-main .first-step .calendar .day {
+    width: 12.5%;
+    margin: 3rem 0;
+}
+.block-main .first-step .calendar .day:first-child {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+}
+.block-main .first-step .calendar .day:first-child h4 {
+    display: none;
+}
+.block-main .first-step .calendar .day h4 {
+    color: black;
+    text-align: center;
+    border: 1px solid rgb(240, 240, 240);
+    padding: 1.5rem 0;
+    margin: 0;
+}
+.block-main .first-step .calendar .day > div {
+    color: black;
+    text-align: center;
+    border: 1px solid rgb(240, 240, 240);
+    padding: 1.5rem 0;
+}
+.block-main .first-step .calendar .day label {
+    display: block;
+    border: 1px solid rgb(240, 240, 240);
+    background: rgb(240, 240, 240);
+    color: grey;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 1.5rem 0;
+}
+.block-main .first-step .calendar .day label:hover {
+    background: rgb(230, 230, 230);
+}
+.block-main .first-step .calendar .day label.selected {
+    background: #0D43BB;
+    color: white;
+}
+.block-main .first-step .calendar .day label.selected:hover {
+    background: #0D43BB;
+    color: white;
+}
+.block-main .first-step .calendar .day label.disabled,
+.block-main .first-step .calendar .day label.deactivate {
+    pointer-events: none;
+    background: rgb(200, 200, 200);
+}
+.block-main .first-step .calendar .day input {
+    display: none;
+}
+
+.tab {
+    display: none;
+}
+
+.block-main.admin .calendar {
+    flex-direction: row;
+}
+.block-main.admin .calendar .day {
+    width: 12.5%;
+    margin: 3rem 0;
+}
+.block-main.admin .calendar .day:first-child {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+}
+.block-main.admin .calendar .day:first-child h4 {
+    display: none;
+}
+.block-main.admin .calendar .day h4 {
+    color: black;
+    text-align: center;
+    border: 1px solid rgb(240, 240, 240);
+    padding: 1.5rem 0;
+    margin: 0;
+}
+.block-main.admin .calendar .day > div {
+    color: black;
+    text-align: center;
+    border: 1px solid rgb(240, 240, 240);
+    padding: 1.5rem 0;
+}
+.block-main.admin .calendar .day .reservation_field {
+    display: block;
+    border: 1px solid rgb(240, 240, 240);
+    background: rgb(240, 240, 240);
+    color: grey;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 1.5rem 0;
+}
+.block-main.admin .calendar .day .reservation_field.disabled,
+.block-main.admin .calendar .day .reservation_field.deactivate {
+    pointer-events: none;
+    background: rgb(200, 200, 200);
+}
+.block-main.admin .calendar .day input {
+    display: none;
+}
+
+.block-main.admin .form-admin-horaires .day label {
+    display: block;
+}
+/* -------------------------------------------------- */
+}
