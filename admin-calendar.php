@@ -11,8 +11,8 @@ if (isset($_SESSION['connected'])) { ?>
             <h2>RÉSERVATIONS</h2>
         </div>
 
-        <div class="wrapper" action="check_reservation.php" method="post">
-            <div class="second-step">
+        <div class="wrapper">
+            <div class="first-step">
                 <div class="form-step-2">
                     <div class="item calendar">
                         <?php
@@ -43,7 +43,6 @@ if (isset($_SESSION['connected'])) { ?>
                         <p>Semaine Précédente</p>
                         <p>Semaine Suivante</p>
                     </div>
-
                 </div>
             </div>
         </div>

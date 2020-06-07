@@ -96,6 +96,61 @@ include_once('functions_helper.php');
 
                 </div>
 
+                <div class="item calendar">
+
+                    <?php
+                    $first_day = date('Y-m-d', strtotime("this week + 7 days"));
+                    $reservation_time_slots = getAllTimeSlotsByWeek($first_day, $connexion);
+                    ?>
+
+                    <div class="day">
+                        <h4></h4>
+                        <?php
+                        foreach (unserialize(HORAIRES_GLOBALES) as $value) {
+                            $hour = substr($value, 0, 2);
+                            if ($hour[0] == 0) {
+                                $hour = substr($hour, 1, 1);
+                            }
+                            $hour_sup = $hour + 1;
+                            echo '<div>' . $hour . 'h' . ' - ' . $hour_sup . 'h' . '</div>';
+                        }
+                        ?>
+                    </div>
+
+                    <div class="day">
+                        <?php displayCalendarClient($reservation_time_slots); ?>
+                    </div>
+
+                </div>
+
+                <div class="item calendar">
+
+                    <?php
+                    $first_day = date('Y-m-d', strtotime("this week + 14 days"));
+                    $reservation_time_slots = getAllTimeSlotsByWeek($first_day, $connexion);
+                    ?>
+
+                    <div class="day">
+                        <h4></h4>
+                        <?php
+                        foreach (unserialize(HORAIRES_GLOBALES) as $value) {
+                            $hour = substr($value, 0, 2);
+                            if ($hour[0] == 0) {
+                                $hour = substr($hour, 1, 1);
+                            }
+                            $hour_sup = $hour + 1;
+                            echo '<div>' . $hour . 'h' . ' - ' . $hour_sup . 'h' . '</div>';
+                        }
+                        ?>
+                    </div>
+
+                    <div class="day">
+                        <?php displayCalendarClient($reservation_time_slots); ?>
+                    </div>
+
+                </div>
+
+
                 <div class="">
                     <p>Semaine Précédente</p>
                     <p>Semaine Suivante</p>
