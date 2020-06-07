@@ -12,3 +12,20 @@ for (var i = 0; i < document.getElementsByClassName('reservation_field').length;
         document.getElementsByClassName('reservation_field')[i].innerHTML = 'non réservé';
     }
 }
+
+
+
+// Choisir trois créneaux horaires maximum
+function updateReservationCalendarField(elem)
+{
+    if (elem.classList.contains('selected')) {
+
+    }
+    if (elem.classList.contains('reserve')) {
+        
+    }
+    else {
+        elem.classList.add('selected');
+        elem.innerHTML = 'Fermé';
+    }
+}

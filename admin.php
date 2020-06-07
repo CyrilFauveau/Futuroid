@@ -44,9 +44,6 @@ include_once('functions_helper.php');
         <div class="">
             <a href="admin-horaires.php">Modifier les horaires d'ouverture</a>
         </div>
-        <div class="">
-            <a href="admin-reservation.php">Modifier les disponibilités de réservation</a>
-        </div>
 
     <?php endif; ?>
 

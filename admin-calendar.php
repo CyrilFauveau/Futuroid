@@ -11,7 +11,7 @@ if (isset($_SESSION['connected'])) { ?>
             <h2>RÉSERVATIONS</h2>
         </div>
 
-        <div class="wrapper">
+        <form class="wrapper" action="check_reservation.php" method="post">
             <div class="first-step">
                 <div class="form-step-2">
                     <div class="item calendar">
@@ -45,7 +45,11 @@ if (isset($_SESSION['connected'])) { ?>
                     </div>
                 </div>
             </div>
-        </div>
+
+            <div class="buttons">
+                <input type="submit" class="liens lien-reserver" name="" value="Valider">
+            </div>
+        </form>
     </main>
 
     <script src="js/admin.js"></script>
