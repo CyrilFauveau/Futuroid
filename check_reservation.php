@@ -1,6 +1,6 @@
 <?php
-include('PDO/connexion.php');
-include('functions_helper.php');
+include_once('PDO/connexion.php');
+include_once('functions_helper.php');
 
 // Conditions formulaire :
 //

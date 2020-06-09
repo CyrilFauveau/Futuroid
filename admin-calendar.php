@@ -11,7 +11,7 @@ if (isset($_SESSION['connected'])) { ?>
             <h2>RÉSERVATIONS</h2>
         </div>
 
-        <form class="wrapper" action="check_reservation.php" method="post">
+        <form class="wrapper" action="check_admin.php" method="post">
             <div class="first-step">
                 <div class="form-step-2">
                     <div class="item calendar">
@@ -21,7 +21,6 @@ if (isset($_SESSION['connected'])) { ?>
                         ?>
 
                         <div class="day">
-                            <h4></h4>
                             <?php
                             foreach (unserialize(HORAIRES_GLOBALES) as $value) {
                                 $hour = substr($value, 0, 2);

@@ -18,14 +18,14 @@ for (var i = 0; i < document.getElementsByClassName('reservation_field').length;
 // Choisir trois créneaux horaires maximum
 function updateReservationCalendarField(elem)
 {
-    if (elem.classList.contains('selected')) {
+    if (elem.classList.contains('reserve')) {
 
     }
-    if (elem.classList.contains('reserve')) {
-        
+    else if (elem.classList.contains('close')) {
+
     }
     else {
         elem.classList.add('selected');
-        elem.innerHTML = 'Fermé';
+        elem.innerHTML = 'Fermer';
     }
 }

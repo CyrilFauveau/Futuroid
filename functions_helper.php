@@ -336,7 +336,8 @@ function displayCalendarAdmin($reservation_time_slots)
             echo '<h4>' . $date . '</h4>';
         }?>
 
-        <div class="reservation_field" for="<?= $key ?>" onclick="updateReservationCalendarField(this)"><?= $value ?></div>
+        <label class="reservation_field" for="<?= $key ?>" onclick="updateReservationCalendarField(this)"><?= $value ?></label>
+        <input id="<?= $key ?>" type="checkbox" name="date[]" value="<?= $key ?>">
 
         <?php
         $prev_key = $key;
@@ -352,5 +353,14 @@ function displayCalendarAdmin($reservation_time_slots)
 function updateReservation($time_slot, $row, $connexion)
 {
     $query_insert = $connexion->prepare("UPDATE reservation SET time_slot = '$time_slot', status = 'reserve' WHERE time_slot LIKE '$row->time_slot' AND status = 'libre'");
+    $query_insert->execute();
+}
+
+
+
+// Fermeture d'un créneau horaire
+function closeTimeSlot($time_slot, $row, $connexion)
+{
+    $query_insert = $connexion->prepare("UPDATE reservation SET status = 'close' WHERE time_slot LIKE '$row->time_slot' AND status = 'libre' OR status = 'reserve'");
     $query_insert->execute();
 }
