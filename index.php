@@ -4,7 +4,7 @@ include_once("body/header.php");
 
 <main class="block-main">
   <div class="banniere accueil">
-    <h1>REALITE VIRTUELLE SUR ANGERS</h1>
+    <h1 class="title">REALITE VIRTUELLE SUR ANGERS</h1>
     <p class="resume-title">Une expérience multijoueur intense</p>
 
     <a class="liens" href="games.php">DECOUVRIR NOS JEUX</a>
@@ -23,9 +23,9 @@ include_once("body/header.php");
        echo "<h3 class=\"h3-title\">".$game->name."</h3>";
        echo "<div class=\"additional_infos\">";
        echo "<ul>";
-       echo "<li><img class=\"icone\" src=\"img/theme.svg\">".$game->theme;
-       echo "<li><img class=\"icone\" src=\"img/player.svg\">".$game->nb_player." joueurs";
-       echo "<li><img class=\"icone\" src=\"img/duree.svg\">".$game->duration."min";
+       echo "<li><img class=\"icone\" src=\"img/theme.png\">".$game->theme;
+       echo "<li><img class=\"icone\" src=\"img/player.png\">".$game->nb_player." joueurs";
+       echo "<li><img class=\"icone\" src=\"img/duree.png\">".$game->duration."min";
        echo "</ul>";
        echo "</div>";
        echo "<p class=\"text\">".$game->resume."</p>";

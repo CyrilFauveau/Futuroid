@@ -10,7 +10,7 @@ include_once('body/header.php');
   <nav aria-label="Breadcrumb" class="breadcrumb">
       <ul>
           <li><a href="">Accueil</a></li>
-          <li><a href="">Entreprises</a></li>
+          <li><a href="">Entreprise</a></li>
       </ul>
   </nav>
   <div class="wrapper">
@@ -20,9 +20,9 @@ include_once('body/header.php');
       Privatisez le centre complet pour quelques heures ou à la journée, et profitez de tous nos services à la carte.
     </p>
     <ul class="liste-entreprise">
-      <li><img class="icone" src="img/game.svg" alt="">Accès aux jeux à volonté</li>
-      <li><img class="icone" src="img/cocktail.svg" alt="">Cocktail déjeunatoire ou dinatoire</li>
-      <li><img class="icone" src="img/boisson.svg" alt="">Boissons</li>
+      <li><img class="icone" src="img/game.png" alt="">Accès aux jeux à volonté</li>
+      <li><img class="icone" src="img/cocktail.png" alt="">Cocktail déjeunatoire ou dinatoire</li>
+      <li><img class="icone" src="img/boisson.png" alt="">Boissons</li>
     </ul>
 
     <a class="liens entreprise" href="#">NOUS CONTACTER</a>

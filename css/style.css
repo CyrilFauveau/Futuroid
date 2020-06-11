@@ -131,15 +131,12 @@ body{
 
 .block-header .block-nav-mobile .menu-mobile{
   background-color: white;
-  display: flex;
   flex-direction: column;
   color: #2A2A2A;
   width: 100%;
   position: absolute;
-  overflow: hidden;
   right: -100%;
   transition: right 1s;
-
   top: 75px;
 }
 
@@ -215,6 +212,9 @@ body{
   }
 
 /* INDEX */
+.block-main .title{
+  text-align: center;
+}
 
 .block-main .banniere{
   height: 250px;
@@ -228,6 +228,7 @@ body{
 
 .block-main .banniere .resume-title{
   margin: 0;
+  text-align: center;
 }
 
 .block-main .accueil{
@@ -516,6 +517,7 @@ color: white;
 
 .block-main .wrapper .resume-entreprise{
   color: #2A2A2A;
+  padding-bottom: 20px;
 }
 
 .block-main .wrapper .liste-entreprise{
@@ -539,6 +541,58 @@ color: white;
   margin:40px 0;
 }
 
+/* OFFRIR */
+
+
+.block-main .wrapper .liste-etapes{
+  display: flex;
+  flex-direction: row;
+}
+.block-main .wrapper .liste-etapes li {
+  background-color: #F8F8F8;
+  padding: 5px 13px;
+  margin-right: 15px;
+}
+.block-main .liste-etapes .validate{
+  color: white;
+  background-color: #0D43BB !important;
+}
+
+.block-main .indications{
+  color: #2A2A2A;
+  padding: 20px 0;
+}
+
+.block-main .subtitle{
+  color: #0D43BB;
+  font-size: 18px;
+}
+
+.block-main .liste-pack{
+  display: flex;
+  flex-direction: column;
+  width: 70vw;
+  margin: auto;
+}
+.block-main .liste-pack .select{
+  background-color: #0D43BB;
+  color: white;
+}
+
+
+.block-main .hide{
+  display: none;
+}
+.block-main .liste-pack li{
+background-color: white;
+  color: #0D43BB;
+  margin-bottom: 30px;
+  text-align: center;
+  padding: 20px 0;
+  border: 1px solid #F8F8F8;
+}
+
+
 @media (min-width: 768px) and (max-width: 1024px) {
 .block-main .wrapper .games .additional_infos ul li{
   flex-basis: inherit;
@@ -557,9 +611,22 @@ color: white;
   width: 30vw;
 }
 
+.block-main  .h2-contact{
+  width: 70vw;
+  margin: auto auto 20px auto;
+}
+.block-main .wrapper-contact{
+  width: 70vw;
+  margin: auto;
+}
+
 }
 
 @media (min-width: 1025px){
+
+  .block-header .reserver{
+    margin-top: 0;
+  }
   .block-header .block-nav-mobile{
     display: none;
   }
@@ -567,6 +634,7 @@ color: white;
     display: flex;
     align-items: center;
     flex-direction: row;
+    flex-basis: 100%;
   }
 
   .block-header .block-nav .menu{
@@ -721,16 +789,10 @@ body{
   color: #0D43BB;
 }
 
-.block-header .block-nav{
-  display: flex;
-  align-items: center;
-  flex-direction: row;
-  flex-basis: 60%;
-}
+
 .block-header .block-nav .menu{
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
   flex-basis: 80%;
   margin: 0;
   margin-left: 10px;
@@ -879,7 +941,7 @@ body{
 .block-main .wrapper-contact{
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
   margin-bottom: 60px;
 }
 
@@ -887,7 +949,7 @@ body{
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  flex-basis:60%;
+  flex-basis:54%;
   justify-content: space-between;
 }
 .block-main .wrapper-contact .form{
@@ -1057,6 +1119,7 @@ body{
   display: flex;
   flex-direction: row;
   margin: auto;
+  flex-wrap: nowrap;
 }
 
 .block-main .nav-genre li{
@@ -1144,7 +1207,7 @@ body{
 }
 .block-main .wrapper .liste-etapes li{
   background-color: #F8F8F8;
-  padding: 10px 20px;
+  padding: 5px 45px;
   margin-right: 15px;
 }
 
