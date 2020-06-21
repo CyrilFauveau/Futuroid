@@ -3,9 +3,6 @@ include_once('body/header.php');
 include_once('PDO/connexion.php');
 include_once('functions_helper.php');
 
-var_dump($_POST);
-var_dump($_SESSION);
-
 if (isset($_SESSION['connected']) && isset($_POST['date'])) {
 
     $date = $_POST['date'];
@@ -28,7 +25,7 @@ if (isset($_SESSION['connected']) && isset($_POST['date'])) {
 
                 while ($row = $query->fetch()) {
                     closeTimeSlot($time_slot, $row, $connexion);
-                    $message = 'Votre réservation a bien été enregistrée';
+                    $message = 'La fermeture a bien été enregistrée';
                 }
             }
             else {
@@ -37,7 +34,7 @@ if (isset($_SESSION['connected']) && isset($_POST['date'])) {
         }
     }
     else {
-        $message = 'La date choisie ne peut pas être antérieure à la date actuelle';
+        $message = 'Les créneaux choisis ne peuvent pas être antérieures à la date actuelle';
     }
 }
 else {
@@ -45,3 +42,5 @@ else {
 }
 
 echo $message;
+
+include_once('body/footer.php');

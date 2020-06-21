@@ -16,7 +16,7 @@ include_once('functions_helper.php');
 
         <ul class="liste liste-etapes">
             <li class="step active">LE JEU</li>
-            <li class="step active">VOS INFORMATIONS</li>
+            <li class="step">VOS INFORMATIONS</li>
             <li class="step">RECAPITULATIF</li>
         </ul>
         <p class="indications">Les champs suivi d’une astérisque * sont obligatoires.</p>
@@ -54,13 +54,14 @@ include_once('functions_helper.php');
                     <label for="game">A quel jeu voulez-vous jouer ?</label>
 
                     <select id="game" name="game" required>
-                        <option value="">-- Veuillez choisir un jeu --</option>
+                        <option value="futuroid">Futuroid</option>
+                        <!-- <option value="">-- Veuillez choisir un jeu --</option>
                         <option value="on_mars">On Mars</option>
                         <option value="ragnarok">RagnaRock</option>
                         <option value="propagation">Propagation</option>
                         <option value="bow_islands">Bow Islands</option>
                         <option value="ultim_8">Ultim-8</option>
-                        <option value="yin">Yin</option>
+                        <option value="yin">Yin</option> -->
                     </select>
                 </div>
                 <div class="item">
@@ -68,94 +69,40 @@ include_once('functions_helper.php');
                     <input type="range" min="1" max="12" step="1" value="0" name="nb_players" onchange="updateTextRangeInput(this.value)">
                     <span id="selRange">1</span>
                 </div>
-                <div for="">Quel créneau souhaitez-vous réserver ?</div>
-                <div class="item calendar">
+                <div id="time_slot_calendar" for="">Quel créneau souhaitez-vous réserver ?</div>
 
-                    <?php
-                    $first_day = date('Y-m-d', strtotime("this week"));
-                    $reservation_time_slots = getAllTimeSlotsByWeek($first_day, $connexion);
-                    ?>
-
-                    <div class="day">
-                        <h4></h4>
+                <?php $date_loop = 0; ?>
+                <?php while ($date_loop <= 21): ?>
+                    <?php $date_loop_string = "this week " . $date_loop . " days" ?>
+                    <div class="item calendar">
                         <?php
-                        foreach (unserialize(HORAIRES_GLOBALES) as $value) {
-                            $hour = substr($value, 0, 2);
-                            if ($hour[0] == 0) {
-                                $hour = substr($hour, 1, 1);
-                            }
-                            $hour_sup = $hour + 1;
-                            echo '<div>' . $hour . 'h' . ' - ' . $hour_sup . 'h' . '</div>';
-                        }
+                        $first_day = date('Y-m-d', strtotime($date_loop_string));
+                        $reservation_time_slots = getAllTimeSlotsByWeek($first_day, $connexion);
                         ?>
-                    </div>
 
-                    <div class="day">
-                        <?php displayCalendarClient($reservation_time_slots); ?>
-                    </div>
-
-                </div>
-
-                <div class="item calendar">
-
-                    <?php
-                    $first_day = date('Y-m-d', strtotime("this week + 7 days"));
-                    $reservation_time_slots = getAllTimeSlotsByWeek($first_day, $connexion);
-                    ?>
-
-                    <div class="day">
-                        <h4></h4>
-                        <?php
-                        foreach (unserialize(HORAIRES_GLOBALES) as $value) {
-                            $hour = substr($value, 0, 2);
-                            if ($hour[0] == 0) {
-                                $hour = substr($hour, 1, 1);
+                        <div class="day">
+                            <h4></h4>
+                            <?php
+                            foreach (unserialize(HORAIRES_GLOBALES) as $value) {
+                                $hour = substr($value, 0, 2);
+                                if ($hour[0] == 0) {
+                                    $hour = substr($hour, 1, 1);
+                                }
+                                $hour_sup = $hour + 1;
+                                echo '<div>' . $hour . 'h' . ' - ' . $hour_sup . 'h' . '</div>';
                             }
-                            $hour_sup = $hour + 1;
-                            echo '<div>' . $hour . 'h' . ' - ' . $hour_sup . 'h' . '</div>';
-                        }
-                        ?>
+                            ?>
+                        </div>
+
+                        <div class="day">
+                            <?php displayCalendarClient($reservation_time_slots); ?>
+                        </div>
                     </div>
+                    <?php $date_loop = $date_loop + 7; ?>
+                <?php endwhile; ?>
 
-                    <div class="day">
-                        <?php displayCalendarClient($reservation_time_slots); ?>
-                    </div>
-
-                </div>
-
-                <div class="item calendar">
-
-                    <?php
-                    $first_day = date('Y-m-d', strtotime("this week + 14 days"));
-                    $reservation_time_slots = getAllTimeSlotsByWeek($first_day, $connexion);
-                    ?>
-
-                    <div class="day">
-                        <h4></h4>
-                        <?php
-                        foreach (unserialize(HORAIRES_GLOBALES) as $value) {
-                            $hour = substr($value, 0, 2);
-                            if ($hour[0] == 0) {
-                                $hour = substr($hour, 1, 1);
-                            }
-                            $hour_sup = $hour + 1;
-                            echo '<div>' . $hour . 'h' . ' - ' . $hour_sup . 'h' . '</div>';
-                        }
-                        ?>
-                    </div>
-
-                    <div class="day">
-                        <?php displayCalendarClient($reservation_time_slots); ?>
-                    </div>
-
-                </div>
-
-
-                <div class="">
-                    <p>Semaine Précédente</p>
-                    <p>Semaine Suivante</p>
-                </div>
-
+                <a href="#time_slot_calendar" class="prev" onclick="plusSlides(-1)">Semaine Précédente</a>
+                <a href="#time_slot_calendar" class="next" onclick="plusSlides(1)">Semaine Suivante</a>
             </div>
         </div>
 
@@ -199,6 +146,7 @@ include_once('functions_helper.php');
 </main>
 
 <script src="js/reservation_form.js"></script>
+<script src="js/calendar_weeks.js"></script>
 <?php
 include_once('body/footer.php');
 ?>

@@ -1,4 +1,0 @@
-fonctionnalités admin:
-- accès réservation
-- modifier les horaires
-- modifier les réservations
