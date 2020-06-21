@@ -116,7 +116,7 @@ function updateReservationCalendarField(elem)
     }
 
 
-    if (document.querySelectorAll('label.reservation_field.selected').length >= 3) {
+    if (document.querySelectorAll('label.reservation_field.selected').length >= 1) {
 
         for (var i = 0; i < document.getElementsByClassName('reservation_field').length; i++) {
             document.getElementsByClassName('reservation_field')[i].classList.add('disabled');

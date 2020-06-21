@@ -12,7 +12,7 @@ function createAllReservationTimeSlots($wishen_year)
     $reservation = array();
 
     // YEARS
-    for ($y = $wishen_year; $y <= $wishen_year; $y++) {
+    for ($y = $wishen_year; $y <= $wishen_year + 10; $y++) {
         $year = array();
 
         // MONTHS
@@ -27,7 +27,7 @@ function createAllReservationTimeSlots($wishen_year)
                     $day = array();
 
                     // TIME SLOTS
-                    for ($t = 10; $t <= 21; $t++) {
+                    for ($t = 8; $t <= 22; $t++) {
                         $day[] = array(
                             $d => $t
                         );
@@ -55,7 +55,7 @@ function createAllReservationTimeSlots($wishen_year)
                         $day = array();
 
                         // TIME SLOTS
-                        for ($t = 10; $t <= 21; $t++) {
+                        for ($t = 8; $t <= 22; $t++) {
                             $day[] = array(
                                 $d => $t
                             );
@@ -81,7 +81,7 @@ function createAllReservationTimeSlots($wishen_year)
                         $day = array();
 
                         // TIME SLOTS
-                        for ($t = 10; $t <= 21; $t++) {
+                        for ($t = 8; $t <= 22; $t++) {
                             $day[] = array(
                                 $d => $t
                             );
@@ -109,7 +109,7 @@ function createAllReservationTimeSlots($wishen_year)
                     $day = array();
 
                     // TIME SLOTS
-                    for ($t = 10; $t <= 21; $t++) {
+                    for ($t = 8; $t <= 22; $t++) {
                         $day[] = array(
                             $d => $t
                         );
@@ -239,7 +239,14 @@ function getAllTimeSlotsByWeek($date1, $connexion)
 {
     if (preg_match('#^[0-9]{4}-[0-9]{2}-[0-9]{2}#', $date1)) {
 
-        $date2 = date('Y-m-d', strtotime($date1 . ' + 7 days'));
+        $date2 = date('Y-m-d', strtotime($date1 . ' + 6 days'));
+
+        $horaires_globales = unserialize(HORAIRES_GLOBALES);
+        $date1_min = " " . $horaires_globales[0];
+        $date2_max = " " . end($horaires_globales);
+
+        $date1 = $date1 . $date1_min;
+        $date2 = $date2 . $date2_max;
 
         $query = $connexion->prepare("SELECT * FROM reservation WHERE time_slot BETWEEN '$date1' AND '$date2'");
         $query->execute();
@@ -290,17 +297,27 @@ function displayCalendarClient($reservation_time_slots)
 
         $date = date('Y-m-d H:i:s', strtotime('+ 2 hour'));
 
-        // Dates antérieures à l'actuelle
-        if ($key < $date) { ?>
-            <label class="reservation_field" for="<?= $key ?>" onclick="updateReservationCalendarField(this)">reserve</label>
-            <input id="<?= $key ?>" type="checkbox" name="date[]" value="<?= $key ?>">
-        <?php }
+        $horaires_globales = unserialize(HORAIRES_GLOBALES);
+        $min_globale_slot = date('H:i:s', strtotime($horaires_globales[0]));
+        $max_globale_slot = date('H:i:s', strtotime(end($horaires_globales)));
 
-        // Dates postérieures à l'actuelle
-        else { ?>
-            <label class="reservation_field" for="<?= $key ?>" onclick="updateReservationCalendarField(this)"><?= $value ?></label>
-            <input id="<?= $key ?>" type="checkbox" name="date[]" value="<?= $key ?>">
-        <?php }
+        $min_globale_slot = substr($key, 0, 11) . $min_globale_slot;
+        $max_globale_slot = substr($key, 0, 11) . $max_globale_slot;
+
+        if ($key >= $min_globale_slot && $key <= $max_globale_slot) {
+
+            // Dates antérieures à l'actuelle
+            if ($key < $date) { ?>
+                <label class="reservation_field" for="<?= $key ?>" onclick="updateReservationCalendarField(this)">reserve</label>
+                <input id="<?= $key ?>" type="checkbox" name="date[]" value="<?= $key ?>">
+            <?php }
+
+            // Dates postérieures à l'actuelle
+            else { ?>
+                <label class="reservation_field" for="<?= $key ?>" onclick="updateReservationCalendarField(this)"><?= $value ?></label>
+                <input id="<?= $key ?>" type="checkbox" name="date[]" value="<?= $key ?>">
+            <?php }
+        }
 
         $prev_key = $key;
         $index++;
@@ -334,12 +351,21 @@ function displayCalendarAdmin($reservation_time_slots)
             $date = date('l d M Y', strtotime($key));
             $date = englishDateToFrench($date, ' ');
             echo '<h4>' . $date . '</h4>';
-        }?>
+        }
+
+        $horaires_globales = unserialize(HORAIRES_GLOBALES);
+        $min_globale_slot = date('H:i:s', strtotime($horaires_globales[0]));
+        $max_globale_slot = date('H:i:s', strtotime(end($horaires_globales)));
+
+        $min_globale_slot = substr($key, 0, 11) . $min_globale_slot;
+        $max_globale_slot = substr($key, 0, 11) . $max_globale_slot;
+
+        if ($key >= $min_globale_slot && $key <= $max_globale_slot) { ?>
 
         <label class="reservation_field" for="<?= $key ?>" onclick="updateReservationCalendarField(this)"><?= $value ?></label>
         <input id="<?= $key ?>" type="checkbox" name="date[]" value="<?= $key ?>">
 
-        <?php
+        <?php }
         $prev_key = $key;
         $index++;
     }

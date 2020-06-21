@@ -592,12 +592,11 @@ input[type="range"]:after {
   display: none;
 }
 .block-main .liste-pack li{
-background-color: white;
+  background-color: white;
   color: #0D43BB;
   margin-bottom: 30px;
   text-align: center;
   padding: 20px 0;
-  border: 1px solid #F8F8F8;
 }
 
 

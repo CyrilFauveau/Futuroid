@@ -29,8 +29,8 @@ if (isset($_POST['pack']) && isset($_POST['game']) && isset($_POST['nb_players']
         $mail = $_POST['mail'];
         $phone = $_POST['tel'];
 
-        if (count($date) > 3) {
-            $message = 'Vous ne pouvez choisir que 3 créneaux horaires maximum';
+        if (count($date) > 1) {
+            $message = 'Vous ne pouvez choisir qu\'1 seul créneau horaire';
         }
         else if (count($date) <= 0) {
             $message = 'Vous devez choisir au moins un créneau horaire';
