@@ -270,6 +270,50 @@ function getAllTimeSlotsByWeek($date1, $connexion)
 
 
 
+function displayCalendarDayClient($key, $value, $date, $min, $max) {
+
+    // Horaires du jour
+    $min_time_slot = date('H:i:s', strtotime($min));
+    $max_time_slot = date('H:i:s', strtotime($max));
+
+    $min_time_slot = substr($key, 0, 11) . $min_time_slot;
+    $max_time_slot = substr($key, 0, 11) . $max_time_slot;
+
+    // Horaires globales
+    $horaires_globales = unserialize(HORAIRES_GLOBALES);
+    $min_globale_slot = date('H:i:s', strtotime($horaires_globales[0]));
+    $max_globale_slot = date('H:i:s', strtotime(end($horaires_globales)));
+
+    $min_globale_slot = substr($key, 0, 11) . $min_globale_slot;
+    $max_globale_slot = substr($key, 0, 11) . $max_globale_slot;
+
+    if ($key >= $min_globale_slot && $key <= $max_globale_slot) {
+
+        if ($key >= $min_time_slot && $key <= $max_time_slot) {
+
+            // Dates antérieures à l'actuelle
+            if ($key < $date) { ?>
+                <label class="reservation_field" for="<?= $key ?>" onclick="updateReservationCalendarField(this)">reserve</label>
+                <input id="<?= $key ?>" type="checkbox" name="date[]" value="<?= $key ?>">
+            <?php }
+
+            // Dates postérieures à l'actuelle
+            else { ?>
+                <label class="reservation_field" for="<?= $key ?>" onclick="updateReservationCalendarField(this)"><?= $value ?></label>
+                <input id="<?= $key ?>" type="checkbox" name="date[]" value="<?= $key ?>">
+            <?php }
+        }
+        else { ?>
+            <label class="reservation_field" for="<?= $key ?>" onclick="updateReservationCalendarField(this)">close</label>
+            <input id="<?= $key ?>" type="checkbox" name="date[]" value="<?= $key ?>">
+        <?php }
+    }
+}
+
+
+
+
+
 // Affiche le calendrier de réservation client
 function displayCalendarClient($reservation_time_slots)
 {
@@ -297,30 +341,68 @@ function displayCalendarClient($reservation_time_slots)
 
         $date = date('Y-m-d H:i:s', strtotime('+ 2 hour'));
 
-        $horaires_globales = unserialize(HORAIRES_GLOBALES);
-        $min_globale_slot = date('H:i:s', strtotime($horaires_globales[0]));
-        $max_globale_slot = date('H:i:s', strtotime(end($horaires_globales)));
+        $day = date('D', strtotime($key));
 
-        $min_globale_slot = substr($key, 0, 11) . $min_globale_slot;
-        $max_globale_slot = substr($key, 0, 11) . $max_globale_slot;
-
-        if ($key >= $min_globale_slot && $key <= $max_globale_slot) {
-
-            // Dates antérieures à l'actuelle
-            if ($key < $date) { ?>
-                <label class="reservation_field" for="<?= $key ?>" onclick="updateReservationCalendarField(this)">reserve</label>
-                <input id="<?= $key ?>" type="checkbox" name="date[]" value="<?= $key ?>">
-            <?php }
-
-            // Dates postérieures à l'actuelle
-            else { ?>
-                <label class="reservation_field" for="<?= $key ?>" onclick="updateReservationCalendarField(this)"><?= $value ?></label>
-                <input id="<?= $key ?>" type="checkbox" name="date[]" value="<?= $key ?>">
-            <?php }
+        switch ($day) {
+            case 'Mon':
+                displayCalendarDayClient($key, $value, $date, HORAIRES_OUVERTURE_LUNDI, HORAIRES_FERMETURE_LUNDI);
+                break;
+            case 'Tue':
+                displayCalendarDayClient($key, $value, $date, HORAIRES_OUVERTURE_MARDI, HORAIRES_FERMETURE_MARDI);
+                break;
+            case 'Wed':
+                displayCalendarDayClient($key, $value, $date, HORAIRES_OUVERTURE_MERCREDI, HORAIRES_FERMETURE_MERCREDI);
+                break;
+            case 'Thu':
+                displayCalendarDayClient($key, $value, $date, HORAIRES_OUVERTURE_JEUDI, HORAIRES_FERMETURE_JEUDI);
+                break;
+            case 'Fri':
+                displayCalendarDayClient($key, $value, $date, HORAIRES_OUVERTURE_VENDREDI, HORAIRES_FERMETURE_VENDREDI);
+                break;
+            case 'Sat':
+                displayCalendarDayClient($key, $value, $date, HORAIRES_OUVERTURE_SAMEDI, HORAIRES_FERMETURE_SAMEDI);
+                break;
+            case 'Sun':
+                displayCalendarDayClient($key, $value, $date, HORAIRES_OUVERTURE_DIMANCHE, HORAIRES_FERMETURE_DIMANCHE);
+                break;
         }
 
         $prev_key = $key;
         $index++;
+    }
+}
+
+
+
+
+
+function displayCalendarDayAdmin($key, $value, $min, $max) {
+
+    // Horaires du jour
+    $min_time_slot = date('H:i:s', strtotime($min));
+    $max_time_slot = date('H:i:s', strtotime($max));
+
+    $min_time_slot = substr($key, 0, 11) . $min_time_slot;
+    $max_time_slot = substr($key, 0, 11) . $max_time_slot;
+
+    // Horaires globales
+    $horaires_globales = unserialize(HORAIRES_GLOBALES);
+    $min_globale_slot = date('H:i:s', strtotime($horaires_globales[0]));
+    $max_globale_slot = date('H:i:s', strtotime(end($horaires_globales)));
+
+    $min_globale_slot = substr($key, 0, 11) . $min_globale_slot;
+    $max_globale_slot = substr($key, 0, 11) . $max_globale_slot;
+
+    if ($key >= $min_globale_slot && $key <= $max_globale_slot) {
+
+        if ($key >= $min_time_slot && $key <= $max_time_slot) { ?>
+            <label class="reservation_field" for="<?= $key ?>" onclick="updateReservationCalendarField(this)"><?= $value ?></label>
+            <input id="<?= $key ?>" type="checkbox" name="date[]" value="<?= $key ?>">
+        <?php }
+        else { ?>
+            <label class="reservation_field" for="<?= $key ?>" onclick="updateReservationCalendarField(this)">close</label>
+            <input id="<?= $key ?>" type="checkbox" name="date[]" value="<?= $key ?>">
+        <?php }
     }
 }
 
@@ -353,19 +435,32 @@ function displayCalendarAdmin($reservation_time_slots)
             echo '<h4>' . $date . '</h4>';
         }
 
-        $horaires_globales = unserialize(HORAIRES_GLOBALES);
-        $min_globale_slot = date('H:i:s', strtotime($horaires_globales[0]));
-        $max_globale_slot = date('H:i:s', strtotime(end($horaires_globales)));
+        $day = date('D', strtotime($key));
 
-        $min_globale_slot = substr($key, 0, 11) . $min_globale_slot;
-        $max_globale_slot = substr($key, 0, 11) . $max_globale_slot;
+        switch ($day) {
+            case 'Mon':
+                displayCalendarDayAdmin($key, $value, HORAIRES_OUVERTURE_LUNDI, HORAIRES_FERMETURE_LUNDI);
+                break;
+            case 'Tue':
+                displayCalendarDayAdmin($key, $value, HORAIRES_OUVERTURE_MARDI, HORAIRES_FERMETURE_MARDI);
+                break;
+            case 'Wed':
+                displayCalendarDayAdmin($key, $value, HORAIRES_OUVERTURE_MERCREDI, HORAIRES_FERMETURE_MERCREDI);
+                break;
+            case 'Thu':
+                displayCalendarDayAdmin($key, $value, HORAIRES_OUVERTURE_JEUDI, HORAIRES_FERMETURE_JEUDI);
+                break;
+            case 'Fri':
+                displayCalendarDayAdmin($key, $value, HORAIRES_OUVERTURE_VENDREDI, HORAIRES_FERMETURE_VENDREDI);
+                break;
+            case 'Sat':
+                displayCalendarDayAdmin($key, $value, HORAIRES_OUVERTURE_SAMEDI, HORAIRES_FERMETURE_SAMEDI);
+                break;
+            case 'Sun':
+                displayCalendarDayAdmin($key, $value, HORAIRES_OUVERTURE_DIMANCHE, HORAIRES_FERMETURE_DIMANCHE);
+                break;
+        }
 
-        if ($key >= $min_globale_slot && $key <= $max_globale_slot) { ?>
-
-        <label class="reservation_field" for="<?= $key ?>" onclick="updateReservationCalendarField(this)"><?= $value ?></label>
-        <input id="<?= $key ?>" type="checkbox" name="date[]" value="<?= $key ?>">
-
-        <?php }
         $prev_key = $key;
         $index++;
     }

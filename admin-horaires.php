@@ -8,44 +8,54 @@ if (!empty($_POST['HORAIRES_OUVERTURE_MINIMUM']) && !empty($_POST['HORAIRES_FERM
 
     $path = 'config.php';
     $config = file($path);
+    $valid = true;
 
     // Uniformise les horaires
     foreach ($_POST as $key => $value) {
         if (strlen($value) == 5) {
             $_POST[$key] = $_POST[$key] . ':00';
         }
-    }
-
-    // Rentre les horaires dans le fichier de config
-    for ($i = 0; $i < count($config); $i++) {
-        foreach ($_POST as $key => $value) {
-            if (strpos($config[$i], $key)) {
-                $config[$i] = "define('" . $key . "', '" . $value . "');\n";
-            }
-        }
-        if (strpos($config[$i], 'HORAIRES_GLOBALES')) {
-
-            $hour = substr($_POST['HORAIRES_OUVERTURE_MINIMUM'], 0, 2);
-            $all_array_define = '';
-
-            while ($hour <= substr($_POST['HORAIRES_FERMETURE_MAXIMUM'], 0, 2)) {
-
-                if ($hour == substr($_POST['HORAIRES_FERMETURE_MAXIMUM'], 0, 2)) {
-                    $array_define = "'" . $hour . ":00:00" . "'";
-                    $all_array_define =  $all_array_define . $array_define;
-                }
-                else {
-                    $array_define = "'" . $hour . ":00:00" . "'";
-                    $all_array_define =  $all_array_define . $array_define . ', ';
-                }
-
-                $hour += 1;
-            }
-            $new_define = "define('HORAIRES_GLOBALES', serialize(array(" . $all_array_define . ")));\n";
-            $config[$i] = $new_define;
+        if (substr($_POST[$key], 2, 6) != ':00:00') {
+            $valid = false;
+            break;
         }
     }
-    file_put_contents($path, $config);
+
+    if ($valid) {
+        // Rentre les horaires dans le fichier de config
+        for ($i = 0; $i < count($config); $i++) {
+            foreach ($_POST as $key => $value) {
+                if (strpos($config[$i], $key)) {
+                    $config[$i] = "define('" . $key . "', '" . $value . "');\n";
+                }
+            }
+            if (strpos($config[$i], 'HORAIRES_GLOBALES')) {
+
+                $hour = substr($_POST['HORAIRES_OUVERTURE_MINIMUM'], 0, 2);
+                $all_array_define = '';
+
+                while ($hour <= substr($_POST['HORAIRES_FERMETURE_MAXIMUM'], 0, 2)) {
+
+                    if ($hour == substr($_POST['HORAIRES_FERMETURE_MAXIMUM'], 0, 2)) {
+                        $array_define = "'" . $hour . ":00:00" . "'";
+                        $all_array_define =  $all_array_define . $array_define;
+                    }
+                    else {
+                        $array_define = "'" . $hour . ":00:00" . "'";
+                        $all_array_define =  $all_array_define . $array_define . ', ';
+                    }
+
+                    $hour += 1;
+                }
+                $new_define = "define('HORAIRES_GLOBALES', serialize(array(" . $all_array_define . ")));\n";
+                $config[$i] = $new_define;
+            }
+        }
+        file_put_contents($path, $config);
+    }
+    else {
+        $message = "Les horaires ne sont pas conformes.";
+    }
 }
 
 if (isset($_SESSION['connected'])) { ?>
@@ -54,6 +64,12 @@ if (isset($_SESSION['connected'])) { ?>
         <div class="banniere banniere-reserver">
             <h2>HORAIRES</h2>
         </div>
+
+        <?php
+        if (isset($message)) {
+            echo $message;
+        }
+        ?>
 
         <form class="form-admin-horaires" action="admin-horaires.php" method="post">
             <div class="day">
